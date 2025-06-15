@@ -1,6 +1,22 @@
 import React from "react";
+import { useSelector } from 'react-redux';
 
 function CourseForm() {
+
+/* const {name, description, cost} = useSelector((state) => {
+  return {
+    name: state.form.name,
+    description: state.form.description,
+    cost: state.form.cost,
+  }
+})
+*/
+const name = useSelector((state) => state.form.name);
+const description = useSelector((state) => state.form.description);
+const cost = useSelector((state) => state.form.cost);
+
+console.log(name, description, cost);
+
   return (
     <div className="courseFormWrapper panel">
       <h4 className="subtitle is-4">Add Course</h4>
