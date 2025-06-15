@@ -1,4 +1,28 @@
-html, body {
-  background-color: #fff !important;
-  color: #000 !important;
+.courseFormWrapper {
+  margin-top: 15px;
+  padding: 15px;
+}
+.courseFormWrapper .field-group {
+  display: flex;
+  margin-bottom: 0px;
+}
+.courseFormWrapper form {
+  display: flex;
+  justify-content: space-between;
+}
+.courseFormWrapper .field {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0px !important;
+  margin-right: 10px;
+}
+.courseFormWrapper .field label.label {
+  margin-bottom: 0px;
+  margin-right: 10px;
+}
+.courseFormWrapper input {
+  width: 100%;
+}
+.courseFormWrapper h4.subtitle.is-4 {
+  margin-bottom: 0.75rem;
 }
