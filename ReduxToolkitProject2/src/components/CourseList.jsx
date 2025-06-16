@@ -1,5 +1,6 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { removeCourse } from "../store/slices/CourseSlice";
 
 function CourseList() {
   const courses = useSelector((state) => {
@@ -12,10 +13,14 @@ function CourseList() {
         <h1>{course.name}</h1>
         <p>{course.description}</p>
         <p>{course.cost}</p>
-        <button className="button is-danger">Delete</button>
+        <button className="button is-danger" onClick={() => {
+          dispatch(removeCourse(course.id))
+        }}>Delete</button>
       </div>
     );
   });
+
+  const dispatch = useDispatch();
 
   return (
     <>
