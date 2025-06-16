@@ -1,10 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  changeName,
-  changeDescription,
-  changeCost,
-} from "../store/slices/FormSlice";
+import { changeName, changeDescription, changeCost } from "../store/slices/FormSlice";
+import { addCourse } from "../store/slices/CourseSlice";
 
 function CourseForm() {
   const name = useSelector((state) => state.form.name);
@@ -13,12 +10,15 @@ function CourseForm() {
 
   const dispatch = useDispatch();
 
-  console.log(name, description, cost);
+  const handleSubmit = (event) => {
+    event.preventDefault(); // Prevents the page from being updated when the form is submitted
+    dispatch(addCourse({ name, description, cost }))
+  }
 
   return (
     <div className="courseFormWrapper panel">
       <h4 className="subtitle is-4">Add Course</h4>
-      <form>
+      <form onSubmit={ handleSubmit }>
         <div className="field-group">
           <div className="field">
             <label className="label">Name</label>
