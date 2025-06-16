@@ -1,19 +1,14 @@
 import React from "react";
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { changeName, changeDescription, changeCost  } from "../store/slices/FormSlice";
 
 function CourseForm() {
 
-/* const {name, description, cost} = useSelector((state) => {
-  return {
-    name: state.form.name,
-    description: state.form.description,
-    cost: state.form.cost,
-  }
-})
-*/
 const name = useSelector((state) => state.form.name);
 const description = useSelector((state) => state.form.description);
 const cost = useSelector((state) => state.form.cost);
+
+const dispatch = useDispatch();
 
 console.log(name, description, cost);
 
@@ -25,19 +20,19 @@ console.log(name, description, cost);
           <div className="field">
             <label className="label">Name</label>
             <div className="control">
-              <input className="input" />
+              <input className="input" onChange={(event) => { dispatch(changeName(event.target.value)) }} />
             </div>
           </div>
           <div className="field">
             <label className="label">Description</label>
             <div className="control">
-              <textarea className="textarea" rows={1}></textarea>
+              <textarea className="textarea" rows={1} onChange={(event) => { dispatch(changeDescription(event.target.value)) }}></textarea>
             </div>
           </div>
           <div className="field">
             <label className="label">Price</label>
             <div className="control">
-              <input className="input is-expanded" type="number" />
+              <input className="input is-expanded" type="number" onChange={(event) => { dispatch(changeCost(parseInt(event.target.value))) }} />
             </div>
           </div>
         </div>
