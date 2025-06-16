@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { changeSearchTerm } from "../store/slices/CourseSlice";
 
 function CourseSearch() {
-  const dispatch = useDispatch;
+  const dispatch = useDispatch();
   const searchTerm = useSelector((state) => {
     return state.courses.searchTerm;
   });
